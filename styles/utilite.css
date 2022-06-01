@@ -1,0 +1,76 @@
+body{
+  background-image: url("../images/fond.jpg");
+}
+section{
+  position: absolute;
+  top: 20%;
+  left: 2%;
+  height: 65%;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+}
+div{
+  height: 60%;
+  width:30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  align-items: center;
+  color:white;
+  padding:5px;
+}
+
+#sciences{
+  border-radius: 20px;
+  border: yellow 4px dotted;
+  background-image:url("../images/sciences.png");
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  color:violet;
+
+}
+#architecture{
+  border-radius: 20px;
+  border: white 4px solid;
+  align-self: self-end;
+  background-image:url("../images/architecture.png");
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  color:black;
+}
+#stats{
+  border-radius: 20px;
+  border: red 2px dashed;
+  background-image:url("../images/proba.png");
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  color:white;
+}
+div h1{
+  position:fixed;
+}
+div p{
+ visibility: hidden;
+}
+#sciences:hover{
+  background-image:unset;
+  background-color: black;
+}
+#architecture:hover{
+  background-image:unset;
+  background-color: black;
+  color:red;
+}
+#stats:hover{
+  background-image:unset;
+  background-color: black;
+}
+div:hover p{
+  visibility:visible;
+}
+
+div:hover h1{
+  visibility:hidden;
+}

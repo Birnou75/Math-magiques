@@ -1,0 +1,82 @@
+body{
+  background-image:url("../images/accueil.jpg")
+}
+#cartes {
+  text-align: center;
+  
+  display: flex;
+  justify-content: space-around;
+  
+  margin-top: 15%;
+}
+
+#cartes div p
+{
+  visibility: hidden;
+  text-align: center;
+}
+
+#cartes div h1
+{
+  position: fixed;
+}
+
+#cartes div
+{
+  border: solid 2px white;
+  color: white;
+  
+  height: 300px;
+  width: 300px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  word-wrap:break-word;
+  
+  align-items: center;
+  
+  background-color: rgba(0,255,0,0.65);
+  
+  transition: 1s;
+}
+
+#cartes div:hover {
+
+  transform: translate3d(12px, 5%, 3em);
+  background-color: rgba(255,255,255,0.85);
+  
+  transition: 1s;
+}
+
+#cartes div:hover p{
+  visibility:visible;
+  transition: 0s;
+}
+
+#cartes div:hover h1{
+  visibility:hidden;
+  transition: 0s;
+}
+
+#utilite:hover {
+  background-size: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: black;
+}
+
+#anecdotes:hover {
+ background-size: 100%;
+ color: black;
+}
+
+#jeux:hover {
+ background-size: 100%;
+ color: black;
+}
+
+#quizz:hover {
+ background-size: 100%;
+ color: black;
+}

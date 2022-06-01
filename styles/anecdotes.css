@@ -1,0 +1,125 @@
+#midpage {
+  display: flex; 
+  justify-content: space-between;
+  background-color: rgba(125,200,125, 0.8);
+  text-align: center;
+  
+  position: relative;
+  margin-top: 7.7%;
+  margin-bottom: 4.5%;
+  padding: 0;
+ 
+  //border: solid 2px red;
+  
+  z-index: 1;
+}
+
+#conteneur-anecdote {
+  //border: solid 2px red;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.bande {
+  //border: solid 2px purple;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  width: 50%;
+  height: 1000px;
+}
+
+.bande .images {
+  position: fixed;
+  width: 150px;
+
+  //border: solid 2px black;
+}
+
+.bande .images img {
+  height: 125px;
+  width: 130px;
+  transition: 0.5s;
+  margin-top: 4px;
+  border-radius: 50px;
+  border: outset 6px red;
+}
+.bande .images img:hover {
+  opacity: 0.4;
+  transition: 0.5s;
+  //border: solid 2px red;
+  border-radius: 4px;
+  transform: rotate(360deg);
+}
+
+#conteneur-anecdote div p
+{
+  visibility: hidden;
+  text-align: center;
+}
+
+#conteneur-anecdote div h1{
+  position: absolute;
+}
+
+#conteneur-anecdote div .voir_jeux{
+  visibility: hidden;
+  background-color: white;
+  color: rgb(252, 56, 56);
+  border: solid 3px white;
+  border-radius: 50px;
+  font-size: normal;
+  font-family: "Shojumaru", sans-serif;
+  text-align: center;
+  
+  margin-top: 70px;
+  margin-bottom: 15px;
+  padding: 12px;
+  width: 50%;
+}
+
+
+#conteneur-anecdote div
+{
+  border: solid 2px rgb(252, 56, 56);
+  color: red;
+  background-color:white;
+  height: 250px;
+  width: 85%;
+  margin: 5px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  word-wrap:break-word;
+  
+  
+  align-items: center;
+  
+  transition: 1s;
+  
+}
+
+#conteneur-anecdote div:hover {
+  background-color: rgb(252, 56, 56);
+  color: white;
+  transition: 1s;
+}
+
+#conteneur-anecdote div:hover p{
+  visibility:visible;
+  transition: 0s;
+}
+#conteneur-anecdote div:hover h1{
+  visibility:hidden;
+  transition: 0s;
+}
+
+#conteneur-anecdote div:hover .voir_jeux {
+  visibility: visible;
+  transition: 0s;
+}

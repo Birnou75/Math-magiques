@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+  <meta name="author" content="Nizar, Loïc"/>
+  <meta name="reply-to" content="nizar.noubir75@gmail.com, championgesal@gmail.com"/>
+	<title>Mathémagiques</title>
+	<link href="styles/style.css" rel="stylesheet" type="text/css"/>
+  <link href="styles/quizz.css" rel="stylesheet" type="text/css"/>
+  <link rel="shortcut icon" type="image/x-icon" href="icon.ico"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+   <a class="logo" href="#"><img src="images/fractale.jpg" alt="Logo du site" title="Logo du site"></a>
+    <a class="logo2" href="#"><img src="images/fractale2.jpg" alt="Logo du site" title="Logo du site"></a>
+      <ul id="menu">
+        <li><a href="index.html"><i class="fa fa-home"></i>&nbsp; Accueil</a></li>
+        <li><a href="utilite.html"><i class="fa fa-calculator"></i>&nbsp; Utilité des Mathématiques</a></li>
+        <li><a href="anecdotes.html"><i class="fa fa-history"></i>&nbsp; Anecdotes</a></li>
+        <li><a href="jeux.html"><i class="fa fa-book"></i>&nbsp; Jeux</a></li>
+        <li><a href="#" class="current-page"><i class="fa fa-question"></i>&nbsp; Quizz</a></li>
+      </ul>
+  </header>
+
+<!-- <a href="#" target="_blank" class="info">Commencer le quizz</a> -->
+
+<script>
+
+  var solutions = [2, 3, 1, 2, 3, 1, 2, 3, 1, 4];
+  var nbReponses = 4;
+  
+  function valider() {
+    trReponses = document.getElementsByClassName("reponses");
+    tdReponses = document.getElementsByClassName("tdReponse");  
+    for(var tr=0; tr < trReponses.length; tr++)
+    { 
+      for(var td=0; td < nbReponses; td++)
+      {
+          if(tdReponses[td+nbReponses*tr].style.backgroundColor == "white" && td+1 == solutions[tr])
+          {
+             tdReponses[td+nbReponses*tr].style.backgroundColor = "green";
+             tdReponses[td+nbReponses*tr].style.color = "white";
+          }
+          else if(tdReponses[td+nbReponses*tr].style.backgroundColor == "white" && td+1 != solutions[tr])
+          {
+            tdReponses[td+nbReponses*tr].style.backgroundColor = "orange";
+          }
+      }
+    }
+  }
+
+  function activeReponse(element) {
+    tdReponses = document.getElementsByClassName("tdReponse");
+    
+    var nbTr;
+    for(var i = 0; i < tdReponses.length; i++)
+    { 
+      if(tdReponses[i].id === element.id)
+      {
+        nbTr = Math.floor(i / nbReponses);
+        console.log(i + ":" + nbTr);
+      }
+    }
+    for(var j = nbTr*nbReponses; j < (nbTr+1)*nbReponses; j++)
+    {
+      tdReponses[j].style.backgroundColor = "rgb(252, 56, 56)";
+      tdReponses[j].style.color = "white";
+      tdReponses[j].style.borderColor = "white";
+    }
+    
+    element.style.backgroundColor = "white";
+    element.style.color = "rgb(252, 56, 56)";
+    element.style.borderColor = "rgb(252, 56, 56)"
+    element.style.textAlign = "center";
+  }
+  
+  
+  
+</script>
+  
+    <table border=5 id="quizz">
+      <caption>Quizz</caption>
+      
+      <div class="question-reponse">
+      <tr class="question">
+        <td colspan=4>Quel mathématicien français est mort à 20 ans ?</td>
+      </tr>
+      <tr class="reponses">
+        <td class="tdReponse" id="r1" onclick="javascript:activeReponse(this)">Connes</td>
+        <td class="tdReponse" id="r2" onclick="javascript:activeReponse(this)">Galois</td>
+        <td class="tdReponse" id="r3" onclick="javascript:activeReponse(this)">Poincarré</td>
+        <td class="tdReponse" id="r4" onclick="javascript:activeReponse(this)">Villani</td>
+      </tr>
+      </div>
+      
+      <div class="question-reponse">
+      <tr class="question">
+        <td colspan=4>A qui doit-on la célèbre suite 1,1,2,3,5,8,13...</td>
+      </tr>
+      <tr class="reponses">
+        <td class="tdReponse"id="r5"  onclick="javascript:activeReponse(this)">Pascal</td>
+        <td class="tdReponse"id="r6"  onclick="javascript:activeReponse(this)">Fourrier</td>
+        <td class="tdReponse" id="r7" onclick="javascript:activeReponse(this)">Fibonacci</td>
+        <td class="tdReponse" id="r8"  onclick="javascript:activeReponse(this)">Syracuse</td>
+      </tr>
+      </div>
+        
+      <div class="question-reponse">
+      <tr class="question">
+        <td colspan=4>Quel est le rapport entre le périmètre et le diamètre ?</td>
+      </tr>
+      <tr class="reponses">
+        <td class="tdReponse" id="r9" onclick="javascript:activeReponse(this)">Pi</td>
+        <td class="tdReponse" id="r10" onclick="javascript:activeReponse(this)">e</td>
+        <td class="tdReponse" id="r11" onclick="javascript:activeReponse(this)">1</td>
+        <td class="tdReponse" id="r12" onclick="javascript:activeReponse(this)">Rayon</td>
+      </tr>
+      </div>
+
+      <div class="question-reponse">
+      <tr class="question">
+        <td colspan=4>Quelle est la limite de la somme des inverses ?</td>
+      </tr>
+      <tr class="reponses">
+        <td class="tdReponse" id="r13" onclick="javascript:activeReponse(this)">Pi</td>
+        <td class="tdReponse" id="r14" onclick="javascript:activeReponse(this)">Infini</td>
+        <td class="tdReponse" id="r15" onclick="javascript:activeReponse(this)">e</td>
+        <td class="tdReponse" id="r16"onclick="javascript:activeReponse(this)">13/7</td>
+      </tr>
+      </div>
+
+      <div class="question-reponse">
+      <tr class="question">
+        <td colspan=4>Quel nombre est parfait ?</td>
+      </tr>
+      <tr class="reponses">
+        <td class="tdReponse" id="r17" onclick="javascript:activeReponse(this)">7</td>
+        <td class="tdReponse" id="r18" onclick="javascript:activeReponse(this)">Pi</td>
+        <td class="tdReponse" id="r19" onclick="javascript:activeReponse(this)">6</td>
+        <td class="tdReponse" id="r20" onclick="javascript:activeReponse(this)">17</td>
+      </tr>
+      </div>
+
+      <div class="question-reponse">
+      <tr class="question">
+        <td colspan=4>Qui est le meilleur mathématicien aujourd'hui ?</td>
+      </tr>
+      <tr class="reponses">
+        <td class="tdReponse" id="r21" onclick="javascript:activeReponse(this)">Terrence Tao</td>
+        <td class="tdReponse" id="r22" onclick="javascript:activeReponse(this)">Loïc</td>
+        <td class="tdReponse" id="r23" onclick="javascript:activeReponse(this)">Newton</td>
+        <td class="tdReponse" id="r24" onclick="javascript:activeReponse(this)">Villani</td>
+      </tr>
+      </div>
+
+      <div class="question-reponse">
+      <tr class="question">
+        <td colspan=4>Quelle est la primitive de la fonction inverse ?</td>
+      </tr>
+      <tr class="reponses">
+        <td class="tdReponse" id="r25" onclick="javascript:activeReponse(this)">x</td>
+        <td class="tdReponse" id="r26" onclick="javascript:activeReponse(this)">Ln(x)</td>
+        <td class="tdReponse" id="r27" onclick="javascript:activeReponse(this)">exp(x)</td>
+        <td class="tdReponse" id="r28" onclick="javascript:activeReponse(this)">-1/x²</td>
+      </tr>
+      </div>
+
+      <div class="question-reponse">
+      <tr class="question">
+        <td colspan=4>A qui doit-on "les Elements", un des premiers ouvrages mathématiques ?</td>
+      </tr>
+      <tr class="reponses">
+        <td class="tdReponse" id="r29" onclick="javascript:activeReponse(this)">Newton</td>
+        <td class="tdReponse" id="r30" onclick="javascript:activeReponse(this)">Archimède</td>
+        <td class="tdReponse" id="r31" onclick="javascript:activeReponse(this)">Euclide</td>
+        <td class="tdReponse" id="r32" onclick="javascript:activeReponse(this)">Euler</td>
+      </tr>
+      </div>
+
+      <div class="question-reponse">
+      <tr class="question">
+        <td colspan=4>Quel est le pays d'origine de Ramanujan ?</td>
+      </tr>
+      <tr class="reponses">
+        <td class="tdReponse" id="r33" onclick="javascript:activeReponse(this)">Inde</td>
+        <td class="tdReponse" id="r34" onclick="javascript:activeReponse(this)">Syrie</td>
+        <td class="tdReponse" id="r35" onclick="javascript:activeReponse(this)">Sri-Lanka</td>
+        <td class="tdReponse" id="r36" onclick="javascript:activeReponse(this)">Egypte</td>
+      </tr>
+      </div>
+
+      <div class="question-reponse">
+      <tr class="question">
+        <td colspan=4>Touvez l'une des sept merveilles du monde</td>
+      </tr>
+      <tr class="reponses">
+        <td class="tdReponse" id="r37" onclick="javascript:activeReponse(this)">Les pyramides</td>
+        <td class="tdReponse" id="r38" onclick="javascript:activeReponse(this)">Les chutes du Niagara</td>
+        <td class="tdReponse" id="r39" onclick="javascript:activeReponse(this)">La Tour Eiffel</td>
+        <td class="tdReponse" id="r40" onclick="javascript:activeReponse(this)">Les Mathématiques</td>
+      </tr>
+      </div>
+
+    <tr id="valider">
+      <td colspan=4><a href="javascript:valider()">Voir les réponses</a></td>
+    </tr>
+      
+    </table>
+
+  <footer>
+    <p>Par <a href="http://www.github.com/Birnou75" target="_blank" class="birnou-github">Nizar</a> et Loïc - Tous droits réservés</p>
+  </footer>
+
+</body>
+
+</html>

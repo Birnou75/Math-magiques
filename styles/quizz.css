@@ -1,0 +1,78 @@
+body{
+  background-color:yellow;
+}
+#quizz {
+  position: relative;
+  margin-top: 11%;
+  margin-bottom: 12%;
+  margin-left: 30%;
+  margin-right: 30%;
+  bottom: 5%;
+
+  color: rgb(252, 56, 56);
+}
+
+#quizz caption {
+  font-size: xxx-large;
+  font-family: "Shojumaru", sans-serif;
+  color: rgb(252, 56, 56);
+  margin-bottom: 30px;
+}
+
+#quizz .question {
+  text-align: center
+}
+
+#quizz .question td {
+  color: red;
+  font-size: xx-large;
+}
+
+#quizz .reponses td {
+  background-color: rgb(252, 56, 56);
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+  text-align: center;
+  
+  font-size: x-large;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px;
+}
+
+#quizz .reponses td:hover {
+  color: rgb(252, 56, 56);
+  background-color: white;
+  transition: 0.5s;
+}
+
+#valider {
+  text-align: center;
+}
+
+#valider td {
+  height: 70px;
+}
+
+#valider td a {
+  color: rgb(252, 56, 56);
+  border: solid 3px rgb(252, 56, 56);
+  border-radius: 50px;
+  font-size: large;
+  font-family: "Shojumaru", sans-serif;
+  
+  text-align: center;
+  padding: 10px 20px;
+  
+  transition: 0.3s;
+}
+
+#valider td a:hover {
+  color: white;
+  background-color: rgb(252, 56, 56);
+  
+  padding: 10px 50px;
+  
+  transition: 0.3s;
+}

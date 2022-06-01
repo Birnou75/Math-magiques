@@ -1,0 +1,97 @@
+img{
+  float:left;
+}
+
+#console{
+  border:black 2px solid;
+  position:absolute;
+  top:120px;
+  left:40%;
+  height:80px;
+  width:300px;
+  text-align:center;
+  overflow:scroll;
+}
+
+#conteneur{
+  border: red 4px solid;
+  position: absolute;
+  top: 230px;
+  left: 40%;
+  align-items:center;
+  margin:auto;
+  justify-content:center;
+  height: 300px;
+  width: 300px;
+  //display:none;
+}
+
+.jeux
+{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  width: 100%;
+  height:100%
+}
+
+.jeu{
+  width: 50%;
+  height:20%;
+  margin:auto;
+}
+#retour{
+  display:none;
+  position:absolute;
+  top: 75%;
+  left:48%;
+  background-color: rgb(252, 56, 56);
+  color: white;
+  padding: 10px 25px;
+  border-radius: 20px;
+}
+#ecran{
+  border: red 4px solid;
+  position:absolute;
+  top: 230px;
+  left: 20%;
+  height: 40%;
+  width: 55%;
+  justify-content: space-between;
+  display:none;
+}
+#partie{
+  border-right: black 2px solid;
+  height: 100%;
+  width:40%;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+#partie input{
+  width: 50%;
+  margin-left:25%;
+}
+#compteur{
+  display:flex;
+  border: black 2px solid;
+  align-self:self-end;
+  height:30%;
+  text-align:center;
+  flex-direction: column;
+  justify-content:space-between;
+}
+#compteur div{
+  margin: auto;
+}
+#brouillon{
+  border-left: black 2px solid;
+  height: 100%;
+  width:30%;
+}
+#brouillon textarea{
+  max-height:50%;
+  max-width:90%;
+  resize:none;
+  
+}

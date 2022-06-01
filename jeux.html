@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+  <meta name="author" content="Nizar, Loïc"/>
+  <meta name="reply-to" content="nizar.noubir75@gmail.com, championgesal@gmail.com"/>
+	<title>Mathémagiques</title>
+	<link href="styles/style.css" rel="stylesheet" HTMtype="text/css"/>
+  <link href = "styles/jeux.css" rel = "stylesheet"/>
+  <link rel="shortcut icon" type="image/x-icon" href="icon.ico"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type ="text/javascript" src = "javascript/jeux.js"></script>
+</head>
+
+<body>
+  <header>
+   <a class="logo" href="#"><img src="images/fractale.jpg" alt="Logo du site" title="Logo du site"></a>
+    <a class="logo2" href="#"><img src="images/fractale2.jpg" alt="Logo du site" title="Logo du site"></a>
+      <ul id="menu">
+        <li><a href="index.html"><i class="fa fa-home"></i>&nbsp; Accueil</a></li>
+        <li><a href="utilite.html"><i class="fa fa-calculator"></i>&nbsp; Utilité des Mathématiques</a></li>
+        <li><a href="anecdotes.html"><i class="fa fa-history"></i>&nbsp; Anecdotes</a></li>
+        <li><a href="#" class="current-page"><i class="fa fa-book"></i>&nbsp; Jeux</a></li>
+        <li><a href="quizz.html"><i class="fa fa-question"></i>&nbsp; Quizz</a></li>
+      </ul>
+  </header>
+
+  <div id = "console"><img id = "photo" height = "80px" width = "114px" src = "images/maths.jpg"/><p id = "indic">Choisissez votre jeu</p></div>
+  <div id = "conteneur">
+  <form name = "jeux" class = "jeux ">
+  <input class = "jeu" type = "button" value = "Calcul de Sommes"/>
+  <input class ="jeu" type = "button" value = "Trouvez la primalité"/>
+    <input class="jeu" type = "button" value = "Lancer de dés"/>
+  </form>
+  </div>
+  <div id = "ecran">
+    <div id = "partie">
+      <p id = "question"></p>
+      <input id = "rep" type = "text"/>
+      <input id = "ok" type = "button" value ="ok"/>
+      <div id = "resultats"></div>
+    </div>
+    <div id = "compteur">
+      <div id = "horloge">Compteur</div>
+      <input id = "starter" type = "button" value = "Commencer"/>
+    </div>
+    <div id = "brouillon">
+      <p>
+        <label>Voici votre brouillon</label>
+        <textarea rows = "10"></textarea>
+      </p>
+    </div>
+  </div>
+  <a id = "retour" href = "jeux.html">Retour</a>
+  <script type ="text/javascript">
+    var items = document.getElementsByClassName("jeu");
+    var c = items.length;
+    var n = null
+    for(var i = 0;i<c;i++){items[i].onclick= function(){
+      ecran = document.getElementById("ecran");
+      ecran.style.display = "block";
+      ecran.style.display = "flex";
+      elmt = document.getElementById("conteneur")
+      elmt.style.display = "none";
+      elmt2 = document.getElementById("console");
+      elmt2.style.width = "55%";
+      elmt2.style.left = "20%";
+      photo = document.getElementById("photo");
+      text = document.getElementById("indic");
+      question.style.textAlign = "center";
+      brouillon.style.textAlign = "center";
+      switch(this){
+        case(items[0]):photo.src = "images/gauss.jpg";
+        text.innerHTML = "Comme vous avez pu le voir dans la page anecdotes, le jeu ci-dessous consiste à calculer la somme des n premiers entiers : Faites-en donc appel au génie de Gauss qui sommeille en vous pour vous aider !";
+        n = 0;
+        break;
+        case(items[1]):photo.src = "images/euclide.jpg";
+        text.innerHTML = "Les nombres premiers sont des entiers particuliers qui ont été étudiés depuis l'Antiquité par des mathématiciens comme Euclide. Il énonce très tôt que l'ensemble des nombre premiers est infini.";
+        n = 1;
+        break;
+        case(items[2]):photo.src = "images/bernouilli.jpg";
+        text.innerHTML = "Jacob Bernouilli est un mathématicien suisse qui a travaillé sur la statistisque et contribué à la loi des grands nombres qui énonce : la moyenne empirique, calculée sur les valeurs d’un échantillon, converge vers la probabilité lorsque la taille de l’échantillon tend vers l’infini. ";
+        question.innerHTML ="Entrez le nb de lancers";
+        ok.style.display = "none";
+        n = 2;
+        break; 
+        default:;
+      }
+      question = document.getElementById("question");
+      rep = document.getElementById("rep");
+      ok = document.getElementById("ok");
+      res = document.getElementById("resultats");
+      bouton = document.getElementById("retour");
+      bouton.style.display = "block";
+}
+}
+    horloge = document.getElementById("horloge");
+    starter = document.getElementById("starter");
+    ok.onclick = function(){
+      r = rep.value
+    }
+    starter.onclick = function(){
+    res.innerHTML = ""
+    if(n === 0){
+        var n1 = 3;
+        var n2 = 100;
+        var rand = n1+Math.floor((n2-n1+1)*Math.random());
+          question.innerHTML = "Calculez la somme 1+2+...+"+rand;
+      var s = rand*(rand+1)/2;
+      let counts=setInterval(updated,1000);
+        let upto=0;
+        function updated(){
+            starter.disabled = true;
+            upto = upto+1;
+            horloge.innerHTML=(60-upto)+"s";
+            if(upto===60)
+            {
+                clearInterval(counts);
+                starter.disabled = false;
+                res.innerHTML = "Temps écoulé. La réponse était "+s
+            }
+            else if(r == s)
+            {
+              clearInterval(counts);
+              starter.disabled = false;
+              res.innerHTML = "Bravo !"
+            }
+            else if(r != s && r != null){
+              res.innerHTML = "Faux ! Malheureusement tout le monde n'a pas le génie de Gauss."
+            }
+        }}
+    else if(n === 1){
+      liste = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199]
+      var n1 = 1;
+      var n2 = 200;
+      var rand = n1+Math.floor((n2-n1+1)*Math.random());
+      if(liste.includes(rand)){var s = "oui"}
+      else{var s = "non"}
+      question.innerHTML = "Est-ce que "+rand+" est premier ? Répondre par 'oui' ou 'non'."
+      let counts=setInterval(updated,1000);
+        let upto=0;
+        function updated(){
+            starter.disabled = true;
+            upto = upto+1;
+            horloge.innerHTML=(20-upto)+"s";
+            if(upto===20)
+            {
+                clearInterval(counts);
+                starter.disabled = false;
+                res.innerHTML = "Temps écoulé. La réponse était "+s
+            }
+            else if(r == s)
+            {
+              clearInterval(counts);
+              starter.disabled = false;
+              res.innerHTML = "Bravo ! Vous êtes assurément le futur Vilani";
+            }
+            else if(r != s && r!= null)
+            {
+              clearInterval(counts);
+              res.innerHTML = "Faux ! Décidément la médaille Fields n'est pas pour vous";
+              starter.disabled = false;
+            }
+        }
+    }
+    else if(n ===2 && rep.value > 0){
+      ok.style.display = "none"
+      starter.value = "lancer"
+      partie.style.justifyContent = "unset";
+      res.style.height = "60%"; 
+      for(var i = 0; i < 6;i++){res.innerHTML +="<p>"+(i+1)+": <span id ="+(i+1)+">0</span></p>"}
+      res.style.display = "flex";
+      res.style.flexDirection = "column";
+      res.style.flexWrap = "wrap";
+      question.innerHTML = "Entrez un nombre de lancer";
+      var n1 = 1;
+      var n2 = 6;
+      var c1 = 0;var c2 = 0;var c3 = 0;var c4 = 0;var c5 = 0;var c6 = 0;
+      let counts=setInterval(updated);
+        let count=0; 
+      function updated(){
+        r = rep.value;
+        starter.disabled = true;
+      var rand = n1+Math.floor((n2-n1+1)*Math.random());
+      switch(rand){
+          case(1):c1++;document.getElementById("1").innerHTML = c1+" ("+Math.round(c1/count*100)+"%)";break
+          case(2):c2++;document.getElementById("2").innerHTML = c2+" ("+Math.round(c2/count*100)+"%)";break
+          case(3):c3++;document.getElementById("3").innerHTML = c3+" ("+Math.round(c3/count*100)+"%)";break
+          case(4):c4++;document.getElementById("4").innerHTML = c4+" ("+Math.round(c4/count*100)+"%)";break
+          case(5):c5++;document.getElementById("5").innerHTML = c5+" ("+Math.round(c5/count*100)+"%)";break
+          case(6):c6++;document.getElementById("6").innerHTML = c6+" ("+Math.round(c6/count*100)+"%)";break;
+        default:;}
+count=count+1;
+          horloge.innerHTML = count;
+    if(count == r){clearInterval(counts)}
+    starter.disabled = false;
+    }
+    
+    }
+    r = null;
+        starter.value = "Rejouer";}
+              
+</script>
+
+  
+  <footer>
+    <p>Par <a href="http://www.github.com/Birnou75" target="_blank" class="birnou-github">Nizar</a> et Loïc - Tous droits réservés</p>
+  </footer>
+
+</body>
+
+</html>
